@@ -1,0 +1,31 @@
+[package]
+name    = "goal_agent"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# ── async / web ──────────────────────────────────────────────
+axum  = { version = "0.6", features = ["tokio", "macros"] }
+hyper = { version = "0.14", features = ["full"] }
+tokio = { version = "1",    features = ["rt-multi-thread", "macros"] }
+
+# ── data / utils ─────────────────────────────────────────────
+serde       = { version = "1.0", features = ["derive"] }
+serde_json  = "1.0"
+chrono      = { version = "0.4", features = ["clock", "serde", "std"] }
+anyhow      = "1.0"
+async-trait = "0.1"
+
+# ── OpenAI ───────────────────────────────────────────────────
+async-openai = "0.21"
+
+# ── Google APIs (these *re-export* yup-oauth2 v9) ───────────
+google-gmail1    = "5.0.5"
+google-calendar3 = "5.0.5"
+
+# ── TLS stack compatible with hyper 0.14 ────────────────────
+hyper-rustls = "0.24"
+
+# ── misc ─────────────────────────────────────────────────────
+base64 = { version = "0.21", features = ["alloc"] }
+mime = "0.3"
